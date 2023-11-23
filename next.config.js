@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ['avatars.githubusercontent.com', 'stocks.valyoux.io','images.unsplash.com'],
   },
+  staticPageGenerationTimeout: 10000
 }
 const withTM = require('next-transpile-modules')([]);
 
