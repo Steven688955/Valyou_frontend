@@ -7,7 +7,7 @@ const AUTH_SESSION_KEY = constant.AUTH_SESSION_KEY;
 const ADMIN_SESSION_KEY = constant.ADMIN_SESSION_KEY;
 const SUPER_ADMIN_SESSION_KEY = constant.SUPER_ADMIN_SESSION_KEY;
 
-const baseURL="http://valyouxm2.sg-host.com/api"
+const baseURL=process.env.NEXT_PUBLIC_BACKEND_API + "api";
 
 interface DecodedToken {
     exp: number;

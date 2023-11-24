@@ -38,24 +38,21 @@ const LoginComponent = () => {
     e.preventDefault();
     const result = await LoginRequest(loginData);
     dispatch(SignIn(result?.success));
-  };
-  React.useEffect(() => {
-    console.log(status);
-    if (status === 200) {
+
+    if (result.success) {
       toast.success("Account Login successfully!", {
         hideProgressBar: true,
       });
       Cookies.set("token", token);
       console.log(token);
       router.push("/investor");
-      // window?.location?.reload();
     }
-    if (error === 401) {
+    if (result.error) {
       toast.error("Incorrect Credentials!", {
         hideProgressBar: true,
       });
     }
-  }, [status, error, token]);
+  };
   return (
     <>
       <div className="!sticky top-0 z-10">

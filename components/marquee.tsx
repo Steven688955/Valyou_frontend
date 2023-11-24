@@ -9,6 +9,7 @@ const MarqueeComponent = () => {
 
   useEffect(() => {
     getBitToUSD().then((result) => {
+      console.log("This is result", result);
       result ? setBit(result?.bitcoin?.usd) : null;
     });
     getEthToBit().then((result) => {
