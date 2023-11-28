@@ -43,8 +43,8 @@ const LoginComponent = () => {
       toast.success("Account Login successfully!", {
         hideProgressBar: true,
       });
-      Cookies.set("token", token);
-      console.log(token);
+      
+      Cookies.set("token", result.success.token);
       router.push("/investor");
     }
     if (result.error) {

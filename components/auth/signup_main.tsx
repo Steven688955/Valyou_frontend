@@ -109,25 +109,23 @@ const SignupComponent = () => {
   const dispatch = useDispatch();
   const handleClickOpen = async(e) => {
     e.preventDefault();
-    // const response = await SignupRequest(signupData);
+    const response = await SignupRequest(signupData);
+    // console.log("This is response", response);
     dispatch(SignUp(signupData));
-  };
 
-  useEffect(() => {
-    if (status === 200) {
+    if (response.success) {
       toast.success("Account registered successfully!", {
         hideProgressBar: true,
       });
-      router.push("/investor");
+      router.push("/login");
       Cookies.set("token", token);
-      // window?.location?.reload();
     }
-    if (error === "User Already Exist") {
+    if (response.error) {
       toast.error(error, {
         hideProgressBar: true,
       });
     }
-  }, [status, error, token]);
+  };
 
   const FlagOption = (props) => {
     return (

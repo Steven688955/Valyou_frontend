@@ -156,6 +156,7 @@ const MarketNavComponent = () => {
   }, []);
 
   useEffect(() => {
+    Cookies.get('laravel_session');
     setOpen(isMenuOpen);
   }, [isMenuOpen]);
 
